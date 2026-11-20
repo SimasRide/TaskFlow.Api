@@ -10,8 +10,10 @@ namespace TaskFlow.Api.Data;
 
     public class DataBaseCtx : DbContext
     {
-            public  DbSet <TaskItem> Tasks { get; set ; } 
-            //Tasks = Nome da propriedade da classe base DataBaseCtx -> DbContext
+    public DataBaseCtx(DbContextOptions<DataBaseCtx>options) : base(options)
+    {   
     }
 
- 
+   public  DbSet <TaskItem> Tasks { get; set; } = null!;
+            //Tasks = Nome da propriedade da classe base DataBaseCtx -> DbContext
+    }

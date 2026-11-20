@@ -1,8 +1,15 @@
 using TaskFlow.Api.Models;
+using TaskFlow.Api.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-
-
+// builder.Services	Aceder ao sistema de serviços da aplicação.
+// AddDbContext	Registar o contexto na Dependency Injection.
+// DataBaseCtx	Identificar o contexto que criámos.
+builder.Services.AddDbContext<DataBaseCtx>(options=>
+options.UseSqlServer(
+builder.Configuration.GetConnectionString("DefaultConnection")));
+//UseSqlServer para usar sql server & GetConnection do appsettings.json
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
