@@ -1,9 +1,12 @@
 using TaskFlow.Api.Data;
 using Microsoft.EntityFrameworkCore;
+using TaskFlow.Api.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
+//ITaskService -> instañcia de TaskService 
+builder.Services.AddScoped<ITaskService, TaskService>();
 
 builder.Services.AddDbContext<DataBaseCtx>(options =>
     options.UseSqlServer(
