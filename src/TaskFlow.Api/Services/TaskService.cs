@@ -62,4 +62,16 @@ public class TaskService : ITaskService
 
         return task;
     }
+public async Task<bool> DeleteTaskAsync(int id)
+    {
+        var task = await _context.Tasks.FindAsync(id);
+        if (task == null)
+        {
+            return false;
+        } 
+_context .Tasks.Remove(task);
+await _context.SaveChangesAsync();
+return true;
+
+    }
 }

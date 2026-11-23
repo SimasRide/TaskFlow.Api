@@ -1,5 +1,8 @@
 ### Update a task
 PUT http://localhost:5052/api/task/1
+
+### Delete a task
+DELETE http://localhost:5052/api/task/1
 Content-Type: application/json
 
 {

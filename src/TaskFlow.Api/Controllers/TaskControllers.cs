@@ -26,6 +26,20 @@ public class TaskController : ControllerBase
     return Ok(tasks);
   }
 
+[HttpDelete("{id}")]
+public async Task<IActionResult> DeleteTaskAsync(int id)
+{
+    var deleted = await _taskService.DeleteTaskAsync(id);
+
+    if (deleted == false)
+    {
+        return NotFound();
+    }
+
+    return NoContent();
+}
+
+
 
   [HttpGet("{id}")] // Angular enviar , TaskController recebe GET /api/taks
   public async Task<IActionResult> GetTasksById(int id) //Consultar tasks 
@@ -60,7 +74,6 @@ public class TaskController : ControllerBase
     return Ok(task);
 
   }
-
 }
 
 
