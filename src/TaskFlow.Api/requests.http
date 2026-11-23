@@ -1,0 +1,13 @@
+### Consultar tarefas
+GET http://localhost:5052/api/task
+
+### Criar tarefa
+POST http://localhost:5052/api/task
+Content-Type: application/json
+
+{
+  "title": "Estudar C#",
+  "description": "Primeiro POST do TaskFlow",
+  "priority": 2,
+  "dueDate": "2026-11-25T18:00:00"
+}
