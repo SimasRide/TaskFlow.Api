@@ -1,6 +1,7 @@
 /*Controllers vai servir de comunicação
   com o frontend por ao receber pedidos http -> GET /api/tasks
   Isto permite obter todas as tarefas */
+  // Responsável por HTTP(GET,POST,PUT,DELETE)
 using Microsoft.AspNetCore.Mvc;
 using TaskFlow.Api.Data;
 using Microsoft.EntityFrameworkCore;
