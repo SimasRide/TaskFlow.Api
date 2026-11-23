@@ -3,7 +3,7 @@ using TaskFlow.Api.Models;
 using TaskFlow.Api.Data;
 using TaskFlow.Api.Dtos;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 
 namespace TaskFlow.Api.Services;
 
@@ -23,8 +23,9 @@ public class TaskService : ITaskService
     }
 
     public async Task<TaskItem?> GetTaskByIdAsync(int id)
-    {
-        var task = await _context.Tasks.FindAsync(id);
+    {  //FindAsync(id) — procura a tarefa.
+        var task = await _context.Tasks.FindAsync(id); 
+    
         return task;
     }
     public async Task<TaskItem?> UpdateTaskAsync(int id, UpdateTaskDto dto)
@@ -37,6 +38,11 @@ public class TaskService : ITaskService
     }
     task.Title = dto.Title;
     task.Description = dto.Description;
+    task.Priority = dto.Priority;
+    task.DueDate = dto.DueDate;
+    task.IsCompleted = dto.IsCompleted;
+
+    await _context.SaveChangesAsync(); //Guarda no Sql 
     return task;
 } //else desnecessario visto q são apenas 2 condições e usamos o return.
     public async Task<TaskItem> CreateTaskAsync(CreateTaskDto dto)

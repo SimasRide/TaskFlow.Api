@@ -1,6 +1,11 @@
-@TaskFlow.Api_HostAddress = http://localhost:5052
+### Update a task
+PUT http://localhost:5052/api/task/1
+Content-Type: application/json
 
-GET {{TaskFlow.Api_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
+{
+  "title": "Estudar ASP.NET Core",
+  "description": "Atualizar uma tarefa através do PUT",
+  "priority": 3,
+  "dueDate": "2026-11-28T00:00:00",
+  "isCompleted": true
+}
