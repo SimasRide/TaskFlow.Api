@@ -18,7 +18,7 @@ public class TaskItem //classe que representa cada tarefa
 public void UpdateDescription(string newDescription)
 {
     /*Uma regra de negócio através de encapsulamento: 
-    A própria classe controla como a sua descrição pode ser alterada.*/
+    A própria classe controla como a minha descrição pode ser alterada.*/
 if (string.IsNullOrWhiteSpace(newDescription))
 {
     throw new ArgumentException("Description cannot be empty.");
