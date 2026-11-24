@@ -41,7 +41,7 @@ public async Task<IActionResult> DeleteTaskAsync(int id)
 
 
 
-  [HttpGet("{id}")] // Angular enviar , TaskController recebe GET /api/taks
+  [HttpGet("{id}")] // Angular enviar , TaskController recebe GET /api/tasks{id}
   public async Task<IActionResult> GetTasksById(int id) //Consultar tasks 
   {
 
